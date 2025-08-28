@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KaufOnline - Dein Online Store</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>KaufOnline</h1>
+		<nav>
+			<a href="index.html">Startseite</a>
+			<a href="products.html">Produkte</a>
+			<a href="#kontakt">Kontakt</a>
+		</nav>
+	</header>
+	<main>
+		<section id="fotos">
+			<h2>Impressionen</h2>
+			<div class="foto-gallery">
+				<img id="galerie-bild" src="img/applewatch.jpg" alt="Impression" class="animated-foto">
+			</div>
+		</section>
+		<section id="kontakt">
+			<h2>Kontakt</h2>
+			<form>
+				<input type="text" placeholder="Dein Name" required>
+				<input type="email" placeholder="Deine E-Mail" required>
+				<textarea placeholder="Deine Nachricht" required></textarea>
+				<button type="submit">Absenden</button>
+			</form>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2025 KaufOnline. Alle Rechte vorbehalten.</p>
+										<script>
+										const bilder = [
+											'img/applewatch.jpg',
+											'img/airpods-pro-2-hero-select-202409_FMT_WHH.png',
+											'img/AIRTAG.jpg'
+										];
+										let index = 0;
+										const galerieBild = document.getElementById('galerie-bild');
+										function zeigeBild(i) {
+											galerieBild.src = bilder[i];
+										}
+										galerieBild.addEventListener('click', () => {
+											index = (index + 1) % bilder.length;
+											zeigeBild(index);
+										});
+										setInterval(() => {
+											index = (index + 1) % bilder.length;
+											zeigeBild(index);
+										}, 5000);
+										</script>
+	</footer>
+</body>
+</html>
