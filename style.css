@@ -1,3 +1,21 @@
+.brand-icons {
+	display: flex;
+	gap: 2rem;
+	justify-content: center;
+	align-items: center;
+	margin: 2rem 0;
+}
+.brand-icon {
+	width: 80px;
+	height: 80px;
+	object-fit: contain;
+	filter: drop-shadow(0 2px 8px rgba(0,0,0,0.10));
+	transition: transform 0.2s, filter 0.2s;
+}
+.brand-icon:hover {
+	transform: scale(1.15);
+	filter: drop-shadow(0 8px 24px rgba(0,120,215,0.18));
+}
 .rahmen {
 	border: 4px solid #0078d7;
 	border-radius: 16px;
@@ -27,7 +45,6 @@
 	box-shadow: 0 12px 32px rgba(0,120,215,0.25);
 	transform: translateY(-16px) scale(1.04);
 	z-index: 2;
-}
 }
 .foto-gallery img:nth-child(2) {
 	animation-delay: 0.3s;

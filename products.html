@@ -5,20 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produkte - KaufOnline</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+    <nav style="background:#094372; color:#fff; padding:1rem 0; display:flex; align-items:center; justify-content:space-between;">
+        <span style="font-size:2rem; font-weight:bold; color:#fff; margin-left:2rem; letter-spacing:1px;">KaufOnline</span>
+        <div>
+            <a href="index.html" style="color:#fff; text-decoration:none; margin:0 1rem; font-weight:bold;">Startseite</a>
+            <a href="products.html" style="color:#fff; text-decoration:none; margin:0 1rem; font-weight:bold;">Produkte</a>
+            <a href="index.html#kontakt" style="color:#fff; text-decoration:none; margin:0 1rem; font-weight:bold;">Kontakt</a>
+            <a href="#" id="search-btn" style="margin-left:1rem; position:relative; font-size:1.6rem; color:#0078d7; background:none; border:none;">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            <a href="#" id="cart-link" style="margin-left:1rem; position:relative; font-size:1.8rem; color:#0078d7; background:none; border:none;">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#d70022; color:#fff; border-radius:50%; padding:2px 7px; font-size:0.9rem; display:none;">0</span>
+            </a>
+        </div>
+    </nav>
     <header>
-        <h1>KaufOnline</h1>
-        <nav>
-            <a href="index.html">Startseite</a>
-            <a href="products.html">Produkte</a>
-            <a href="index.html#kontakt">Kontakt</a>
-        </nav>
+        <!-- h1 entfernt, da Logo jetzt in Navbar -->
     </header>
     <main>
+    <div id="search-container" style="display:none; text-align:center; margin:1rem 0;">
+        <input type="text" id="search-input" placeholder="Produkt suchen..." style="padding:0.5rem; width:250px; border-radius:4px; border:1px solid #ccc;">
+        <button id="search-go" style="background:none; border:none; cursor:pointer; font-size:1.6rem; color:#0078d7; margin-left:8px; vertical-align:middle;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+        <div id="search-container" style="display:none; text-align:center; margin:1rem 0;">
+            <input type="text" id="search-input" placeholder="Produkt suchen..." style="padding:0.5rem; width:250px; border-radius:4px; border:1px solid #ccc;">
+            <button id="search-go" style="background:none; border:none; cursor:pointer; font-size:1.6rem; color:#0078d7; margin-left:8px; vertical-align:middle;">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+        <section id="in-ear">
+            <h2>In-Ear Kopfhörer</h2>
+            <div class="produkt-grid">
+                <div class="produkt-card">
+                    <img src="img/jbl-tune-230nc.png" alt="JBL Tune 230NC">
+                    <h3>JBL Tune 230NC</h3>
+                    <p>JBL True Wireless In-Ear Kopfhörer mit aktiver Geräuschunterdrückung.</p>
+                    <span class="preis">79,99 €</span>
+                    <button>Kaufen</button>
+                </div>
+                <div class="produkt-card">
+                    <img src="img/bose-quietcomfort-earbuds.png" alt="Bose QuietComfort Earbuds">
+                    <h3>Bose QuietComfort Earbuds</h3>
+                    <p>Bose In-Ear Kopfhörer mit hervorragender Geräuschunterdrückung und Komfort.</p>
+                    <span class="preis">249,99 €</span>
+                    <button>Kaufen</button>
+                </div>
+                <div class="produkt-card">
+                    <img src="img/sennheiser-momentum-true-wireless-3.png" alt="Sennheiser Momentum True Wireless 3">
+                    <h3>Sennheiser Momentum True Wireless 3</h3>
+                    <p>Premium In-Ear Kopfhörer mit exzellentem Klang und Design.</p>
+                    <span class="preis">199,99 €</span>
+                    <button>Kaufen</button>
+                </div>
+            </div>
+        </section>
         <section id="produkte">
             <h2>Unsere Produkte</h2>
-            <div class="produkt-grid">
+            <div class="produkt-grid" id="produkt-grid">
                 <div class="produkt-card">
                     <img src="https://via.placeholder.com/150" alt="Produkt 1">
                     <h3>Produkt 1</h3>
@@ -42,9 +91,78 @@
                 </div>
             </div>
         </section>
+
+        <section id="kopfhoerer">
+            <h2>Kopfhörer</h2>
+            <div class="produkt-grid">
+                <div class="produkt-card">
+                    <img src="img/airpods-pro-2-hero-select-202409_FMT_WHH.png" alt="AirPods Pro 2">
+                    <h3>AirPods Pro 2</h3>
+                    <p>Apple AirPods Pro 2. Generation mit aktiver Geräuschunterdrückung.</p>
+                    <span class="preis">249,99 €</span>
+                    <button>Kaufen</button>
+                </div>
+                <div class="produkt-card">
+                    <img src="img/goobuds.png" alt="Google Buds WH-1000XM5">
+                    <h3>Google Buds</h3>
+                    <p>Sony Over-Ear Kopfhörer mit Noise Cancelling und langer Akkulaufzeit.</p>
+                    <span class="preis">399,99 €</span>
+                    <button>Kaufen</button>
+                </div>
+                <div class="produkt-card">
+                    <img src="img/airpods-pro-2-hero-select-202409_FMT_WHH.png" alt="Galaxy Buds2">
+                    <h3>Samsung Galaxy Buds2</h3>
+                    <p>True Wireless Kopfhörer mit ausgewogenem Sound und Komfort.</p>
+                    <span class="preis">129,99 €</span>
+                    <button>Kaufen</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="neues-produkt">
+            <h2>Neues Produkt hinzufügen</h2>
+            <form id="produkt-form">
+                <input type="text" id="produkt-name" placeholder="Produktname" required>
+                <input type="text" id="produkt-beschreibung" placeholder="Beschreibung" required>
+                <input type="number" id="produkt-preis" placeholder="Preis (€)" required min="0" step="0.01">
+                <input type="text" id="produkt-bild" placeholder="Bild-URL" required>
+                <button type="submit">Produkt hinzufügen</button>
+            </form>
+        </section>
     </main>
     <footer>
         <p>&copy; 2025 KaufOnline. Alle Rechte vorbehalten.</p>
-    </footer>
+        </footer>
+            <script>
+            // Produkt hinzufügen
+            const form = document.getElementById('produkt-form');
+            const grid = document.getElementById('produkt-grid');
+            form?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('produkt-name').value;
+                const beschreibung = document.getElementById('produkt-beschreibung').value;
+                const preis = document.getElementById('produkt-preis').value;
+                const bild = document.getElementById('produkt-bild').value;
+                const card = document.createElement('div');
+                card.className = 'produkt-card';
+                card.innerHTML = `
+                    <img src="${bild}" alt="${name}">
+                    <h3>${name}</h3>
+                    <p>${beschreibung}</p>
+                    <span class="preis">${Number(preis).toFixed(2)} €</span>
+                    <button>Kaufen</button>
+                `;
+                grid.appendChild(card);
+                form.reset();
+            });
+
+                // Suche anzeigen
+                const searchBtn = document.getElementById('search-btn');
+                const searchContainer = document.getElementById('search-container');
+                searchBtn?.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    searchContainer.style.display = searchContainer.style.display === 'none' ? 'block' : 'none';
+                });
+            </script>
 </body>
 </html>
