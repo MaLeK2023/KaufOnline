@@ -9,7 +9,7 @@
 </head>
 <body>
 	<header>
-		<nav style="background:#094372; color:#fff; padding:1rem 0; display:flex; align-items:center; justify-content:space-between;">
+	<nav class="navbar-sticky" style="background:#094372; color:#fff; padding:1rem 0; display:flex; align-items:center; justify-content:space-between;">
 			<span style="font-size:2rem; font-weight:bold; color:#fff; margin-left:2rem; letter-spacing:1px;">KaufOnline</span>
 			<div>
 				<a href="index.html" style="color:#fff; text-decoration:none; margin:0 1rem; font-weight:bold;">Startseite</a>
@@ -64,35 +64,7 @@
 	</main>
 	<footer>
 		<p>&copy; 2025 KaufOnline. Alle Rechte vorbehalten.</p>
-		<script>
-		// Bildwechsel Galerie
-		const bilder = [
-			'img/applewatch.jpg',
-			'img/airpods-pro-2-hero-select-202409_FMT_WHH.png',
-			'img/AIRTAG.jpg'
-		];
-		let index = 0;
-		const galerieBild = document.getElementById('galerie-bild');
-		function zeigeBild(i) {
-			galerieBild.src = bilder[i];
-		}
-		galerieBild.addEventListener('click', () => {
-			index = (index + 1) % bilder.length;
-			zeigeBild(index);
-		});
-		setInterval(() => {
-			index = (index + 1) % bilder.length;
-			zeigeBild(index);
-		}, 5000);
-
-		// Suche anzeigen
-		const searchBtn = document.getElementById('search-btn');
-		const searchContainer = document.getElementById('search-container');
-		searchBtn?.addEventListener('click', (e) => {
-			e.preventDefault();
-			searchContainer.style.display = searchContainer.style.display === 'none' ? 'block' : 'none';
-		});
-		</script>
+	<script src="main.js"></script>
 	</footer>
 </body>
 </html>
