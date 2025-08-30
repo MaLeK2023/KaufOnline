@@ -6,28 +6,46 @@
 	<title>KaufOnline - Dein Online Store</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<style>
+	.dropdown-anim-link {
+	  transition: background 0.2s, color 0.2s, transform 0.2s;
+	}
+	.dropdown-anim-link:hover {
+	  background: #0078d7;
+	  color: #fff !important;
+	  transform: translateX(8px) scale(1.05);
+	}
+	</style>
 </head>
 <body>
-	<header>
 	<nav class="navbar-sticky" style="background:#094372; color:#fff; padding:1rem 0; display:flex; align-items:center; justify-content:space-between;">
-			<span style="font-size:2rem; font-weight:bold; color:#fff; margin-left:2rem; letter-spacing:1px;">KaufOnline</span>
-			<div>
-				<a href="index.html" style="color:#fff; text-decoration:none; margin:0 1rem; font-weight:bold;">Startseite</a>
-				<a href="products.html" style="color:#fff; text-decoration:none; margin:0 1rem; font-weight:bold;">Produkte</a>
-				<a href="#kontakt" style="color:#fff; text-decoration:none; margin:0 1rem; font-weight:bold;">Kontakt</a>
-				<a href="#" id="search-btn" style="margin-left:1rem; position:relative; font-size:1.6rem; color:#0078d7; background:none; border:none;">
-					<i class="fa-solid fa-magnifying-glass"></i>
+		<span style="font-size:2rem; font-weight:bold; color:#fff; margin-left:2rem; margin-right:2rem; letter-spacing:1px;">KaufOnline</span>
+		<div class="navbar-dropdown" style="position:relative;">
+			<button id="dropdown-btn" style="background:#0078d7; color:#ffffff; border:none; border-radius:4px; padding:0.5rem 1.2rem; font-size:1.4rem; cursor:pointer; display:flex; align-items:center; gap:0.5rem;">
+				<i class="fa-solid fa-bars"></i>
+				<span style="font-size:1rem; font-weight:bold;">Menü</span>
+			</button>
+			<div id="dropdown-menu" style="display:none; position:fixed; left:0; top:64px; width:260px; height:calc(100vh - 64px); background:#fff; color:#222; box-shadow:0 2px 16px rgba(0,0,0,0.12); border-radius:0 12px 12px 0; z-index:1001; overflow-y:auto;">
+				<a href="index.html" class="dropdown-anim-link" style="display:block; padding:0.7rem 1.2rem; text-decoration:none; color:#222; border-bottom:1px solid #eee;">Startseite</a>
+				<a href="products.html" id="dropdown-products" style="display:flex; align-items:center; justify-content:space-between; padding:0.7rem 1.2rem; text-decoration:none; color:#222; border-bottom:1px solid #eee; cursor:pointer; position:relative;">
+					<span style="display:flex; align-items:center;">
+						<i class="fa-solid fa-box-open" style="margin-right:8px;"></i> Produkte
+					</span>
+					<i class="fa-solid fa-chevron-right"></i>
 				</a>
-				<a href="#" id="cart-link" style="margin-left:1rem; position:relative; font-size:1.8rem; color:#0078d7; background:none; border:none;">
-					<i class="fa-solid fa-cart-shopping"></i>
-					<span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#d70022; color:#fff; border-radius:50%; padding:2px 7px; font-size:0.9rem; display:none;">0</span>
-				</a>
+				<a href="#kontakt" class="dropdown-anim-link" style="display:block; padding:0.7rem 1.2rem; text-decoration:none; color:#222;">Kontakt</a>
 			</div>
-		</nav>
-		<header>
-			<!-- h1 entfernt, da Logo jetzt in Navbar -->
-		</header>
-	</header>
+		</div>
+		<form class="navbar-search" style="display:flex; justify-content:center; align-items:center; max-width:400px; margin:0 2rem; width:100%;">
+			<input type="text" placeholder="Suche..." style="padding:0.5rem 1rem; border-radius:4px; border:1px solid #ccc; width:100%; min-width:180px;">
+		</form>
+		<div class="navbar-icons">
+			<a href="#" id="cart-link" style="font-size:1.8rem; color:#ffffff; background:none; border:none; position:relative; margin-right:2rem;">
+				<i class="fa-solid fa-cart-shopping"></i>
+				<span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#d70022; color:#fff; border-radius:50%; padding:2px 7px; font-size:0.9rem; display:none;">0</span>
+			</a>
+		</div>
+	</nav>
 	<main>
 		<div id="search-container" style="display:none; text-align:center; margin:1rem 0;">
 			<input type="text" id="search-input" placeholder="Produkt suchen..." style="padding:0.5rem; width:250px; border-radius:4px; border:1px solid #ccc;">
@@ -52,19 +70,23 @@
                 <img src="img/LOGO_Honor.svg" alt="Honor" title="Honor" class="brand-icon">
 			</div>
 		</section>
-		<section id="kontakt">
-			<h2>Kontakt</h2>
-			<form>
-				<input type="text" placeholder="Dein Name" required>
-				<input type="email" placeholder="Deine E-Mail" required>
-				<textarea placeholder="Deine Nachricht" required></textarea>
-				<button type="submit">Absenden</button>
-			</form>
-		</section>
 	</main>
 	<footer>
 		<p>&copy; 2025 KaufOnline. Alle Rechte vorbehalten.</p>
 	<script src="main.js"></script>
+	<script>
+	const dropdownBtn = document.getElementById('dropdown-btn');
+	const dropdownMenu = document.getElementById('dropdown-menu');
+	dropdownBtn?.addEventListener('click', function(e) {
+		e.stopPropagation();
+		dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+	});
+	document.addEventListener('click', function(e) {
+		if (dropdownMenu && dropdownMenu.style.display === 'block') {
+			dropdownMenu.style.display = 'none';
+		}
+	});
+	</script>
 	</footer>
 </body>
 </html>

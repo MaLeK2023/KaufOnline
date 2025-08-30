@@ -1,7 +1,48 @@
+/* Menü Button Hover Effekt */
+#dropdown-btn:hover, .navbar-dropdown button:hover {
+	background: #fff !important;
+	color: #000 !important;
+}
+#dropdown-btn:hover i, .navbar-dropdown button:hover i {
+	color: #000 !important;
+}
+#dropdown-btn:hover span, .navbar-dropdown button:hover span {
+	color: #000 !important;
+}
+.navbar-icons {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	margin-left: auto;
+}
 .navbar-sticky {
-	position: sticky;
+	display: grid;
+	grid-template-columns: auto auto 1fr auto;
+	align-items: center;
+	column-gap: 1.5rem;
+}
+
+.navbar-sticky > span {
+	margin-right: 8rem;
+	margin-left: 2;
+}
+.navbar-menu {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	padding-left: 2;
+	flex-grow: 2;
+}
+body {
+	padding-top: 64px;
+}
+.navbar-sticky {
+	position: fixed;
 	top: 0;
+	left: 0;
+	width: 100%;
 	z-index: 1000;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 .brand-icons {
 	display: flex;
