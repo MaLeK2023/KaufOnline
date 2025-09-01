@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produkte - KaufOnline</title>
+    <title>Produkte - Kauf24</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
@@ -29,15 +29,50 @@
   color: #fff !important;
   transform: translateX(8px) scale(1.05);
 }
+#cart-dropdown {
+  display: none;
+  position: fixed;
+  right: 2rem;
+  top: 64px;
+  width: 340px;
+  max-height: 60vh;
+  background: #fff;
+  color: #222;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+  border-radius: 12px;
+  z-index: 2000;
+  overflow-y: auto;
+  padding: 1rem;
+}
+#cart-dropdown h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #0078d7;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.cart-item span {
+  font-weight: bold;
+}
     </style>
 </head>
 <body>
     <nav class="navbar-sticky" style="background:#094372; color:#fff; padding:1rem 0; display:flex; align-items:center; justify-content:space-between;">
-    <span style="font-size:2rem; font-weight:bold; color:#fff; margin-left:2rem; margin-right:2rem; letter-spacing:1px;">KaufOnline</span>
+    <a href="index.html" style="font-size:2rem; font-weight:bold; color:#fff; margin-left:2rem; margin-right:2rem; letter-spacing:1px; text-decoration:none;">Kauf24</a>
     <div class="navbar-dropdown" style="position:relative;">
         <button id="dropdown-btn" style="background:#0078d7; color:#fff; border:none; border-radius:4px; padding:0.5rem 1.2rem; font-size:1.4rem; cursor:pointer; display:flex; align-items:center; gap:0.5rem;">
             <i class="fa-solid fa-bars"></i>
-            <span style="font-size:1rem; font-weight:bold;">Menü</span>
+            <span style="font-size:1rem; font-weight:bold;"></span>
         </button>
     <div id="dropdown-menu" style="display:none; position:fixed; left:0; top:64px; width:260px; height:calc(100vh - 64px); background:#fff; color:#222; box-shadow:0 2px 16px rgba(0,0,0,0.12); border-radius:0 12px 12px 0; z-index:1001; overflow-y:auto;">
             <a href="index.html" class="dropdown-anim-link" style="display:block; padding:0.7rem 1.2rem; text-decoration:none; color:#222; border-bottom:1px solid #eee;">Startseite</a>
@@ -145,22 +180,28 @@
         <h2>Handys</h2>
         <div class="produkt-grid">
             <div class="produkt-card">
-                <img src="img/samsung-galaxy-s24.png" alt="Samsung Galaxy S24">
-                <h3>Samsung Galaxy S24</h3>
+                <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80" alt="Samsung Galaxy S24">
+                    <h3>Samsung Galaxy S24</h3>
+                </a>
                 <p>Leistungsstarkes Smartphone mit AMOLED-Display und Triple-Kamera.</p>
                 <span class="preis">899,99 €</span>
                 <button>Kaufen</button>
             </div>
             <div class="produkt-card">
-                <img src="img/iphone-15.png" alt="iPhone 15">
-                <h3>iPhone 15</h3>
+                <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="iPhone 15">
+                    <h3>iPhone 15</h3>
+                </a>
                 <p>Apple iPhone 15 mit A17 Chip und Dynamic Island.</p>
                 <span class="preis">1099,99 €</span>
                 <button>Kaufen</button>
             </div>
             <div class="produkt-card">
-                <img src="img/xiaomi-13.png" alt="Xiaomi 13">
-                <h3>Xiaomi 13</h3>
+                <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Xiaomi 13">
+                    <h3>Xiaomi 13</h3>
+                </a>
                 <p>Flaggschiff mit Leica-Kamera und schnellem Prozessor.</p>
                 <span class="preis">749,99 €</span>
                 <button>Kaufen</button>
@@ -173,22 +214,28 @@
         <h2>Tablets</h2>
         <div class="produkt-grid">
             <div class="produkt-card">
-                <img src="img/ipad-pro.png" alt="iPad Pro">
-                <h3>iPad Pro</h3>
+                <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="iPad Pro">
+                    <h3>iPad Pro</h3>
+                </a>
                 <p>Apple iPad Pro mit M2 Chip und Liquid Retina Display.</p>
                 <span class="preis">1299,99 €</span>
                 <button>Kaufen</button>
             </div>
             <div class="produkt-card">
-                <img src="img/samsung-galaxy-tab-s9.png" alt="Galaxy Tab S9">
-                <h3>Samsung Galaxy Tab S9</h3>
+                <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Galaxy Tab S9">
+                    <h3>Samsung Galaxy Tab S9</h3>
+                </a>
                 <p>Leistungsstarkes Android-Tablet mit S Pen.</p>
                 <span class="preis">999,99 €</span>
                 <button>Kaufen</button>
             </div>
             <div class="produkt-card">
-                <img src="img/huawei-matepad.png" alt="Huawei MatePad">
-                <h3>Huawei MatePad Pro</h3>
+                <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                    <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=400&q=80" alt="Huawei MatePad">
+                    <h3>Huawei MatePad Pro</h3>
+                </a>
                 <p>Tablet mit großem Display und langer Akkulaufzeit.</p>
                 <span class="preis">599,99 €</span>
                 <button>Kaufen</button>
@@ -201,22 +248,28 @@
         <h2>Smartwatch</h2>
         <div class="produkt-grid">
             <div class="produkt-card">
-                <img src="img/applewatch.jpg" alt="Apple Watch Series 9">
-                <h3>Apple Watch Series 9</h3>
+                <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                    <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=400&q=80" alt="Apple Watch Series 9">
+                    <h3>Apple Watch Series 9</h3>
+                </a>
                 <p>Smartwatch mit Fitness-Tracking und Always-On Display.</p>
                 <span class="preis">499,99 €</span>
                 <button>Kaufen</button>
             </div>
             <div class="produkt-card">
-                <img src="img/samsung-galaxy-watch6.png" alt="Galaxy Watch 6">
-                <h3>Samsung Galaxy Watch 6</h3>
+                <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                    <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" alt="Samsung Galaxy Watch 6">
+                    <h3>Samsung Galaxy Watch 6</h3>
+                </a>
                 <p>Elegante Smartwatch mit Gesundheitsfunktionen.</p>
                 <span class="preis">349,99 €</span>
                 <button>Kaufen</button>
             </div>
             <div class="produkt-card">
-                <img src="img/huawei-watch-gt4.png" alt="Huawei Watch GT 4">
-                <h3>Huawei Watch GT 4</h3>
+                <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Huawei Watch GT 4">
+                    <h3>Huawei Watch GT 4</h3>
+                </a>
                 <p>Robuste Smartwatch mit langer Akkulaufzeit.</p>
                 <span class="preis">299,99 €</span>
                 <button>Kaufen</button>
@@ -228,22 +281,28 @@
             <h2>Kopfhörer</h2>
             <div class="produkt-grid">
                 <div class="produkt-card">
-                    <img src="img/airpods-pro-2-hero-select-202409_FMT_WHH.png" alt="AirPods Pro 2">
-                    <h3>AirPods Pro 2</h3>
+                    <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="AirPods Pro 2">
+                        <h3>AirPods Pro 2</h3>
+                    </a>
                     <p>Apple AirPods Pro 2. Generation mit aktiver Geräuschunterdrückung.</p>
                     <span class="preis">249,99 €</span>
                     <button>Kaufen</button>
                 </div>
                 <div class="produkt-card">
-                    <img src="img/goobuds.png" alt="Google Buds WH-1000XM5">
-                    <h3>Google Buds</h3>
+                    <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                        <img src="https://images.unsplash.com/photo-1517263904808-5dc0d6ae3b43?auto=format&fit=crop&w=400&q=80" alt="Google Buds">
+                        <h3>Google Buds</h3>
+                    </a>
                     <p>Sony Over-Ear Kopfhörer mit Noise Cancelling und langer Akkulaufzeit.</p>
                     <span class="preis">399,99 €</span>
                     <button>Kaufen</button>
                 </div>
                 <div class="produkt-card">
-                    <img src="img/airpods-pro-2-hero-select-202409_FMT_WHH.png" alt="Galaxy Buds2">
-                    <h3>Samsung Galaxy Buds2</h3>
+                    <a href="#" class="produkt-link" style="text-decoration:none; color:inherit;">
+                        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Galaxy Buds2">
+                        <h3>Samsung Galaxy Buds2</h3>
+                    </a>
                     <p>True Wireless Kopfhörer mit ausgewogenem Sound und Komfort.</p>
                     <span class="preis">129,99 €</span>
                     <button>Kaufen</button>
@@ -251,10 +310,16 @@
             </div>
         </section>
 
-       
+        <div id="cart-dropdown">
+  <h3>Warenkorb</h3>
+  <div id="cart-items"></div>
+  <div id="cart-empty" style="color:#888;">Dein Warenkorb ist leer.</div>
+  <div id="cart-total" style="margin-top:1rem; font-weight:bold; color:#0078d7;"></div>
+  <button id="cart-checkout" style="margin-top:1rem; background:#0078d7; color:#fff; border:none; border-radius:4px; padding:0.5rem 1.2rem; font-size:1rem; cursor:pointer; width:100%;">Zur Kasse</button>
+</div>
     </main>
     <footer>
-        <p>&copy; 2025 KaufOnline. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2025 Kauf24. Alle Rechte vorbehalten.</p>
         </footer>
         <script>
         const dropdownBtn = document.getElementById('dropdown-btn');
@@ -301,19 +366,107 @@
                 });
             </script>
             <script>
-            document.getElementById('show-all-products')?.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.getElementById('handys')?.scrollIntoView({behavior: 'smooth'});
-                document.getElementById('tablets')?.scrollIntoView({behavior: 'smooth'});
-                document.getElementById('smartwatch')?.scrollIntoView({behavior: 'smooth'});
-                document.getElementById('kopfhoerer')?.scrollIntoView({behavior: 'smooth'});
-            });
+document.getElementById('show-all-products')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('handys')?.scrollIntoView({behavior: 'smooth'});
+    document.getElementById('tablets')?.scrollIntoView({behavior: 'smooth'});
+    document.getElementById('smartwatch')?.scrollIntoView({behavior: 'smooth'});
+    document.getElementById('kopfhoerer')?.scrollIntoView({behavior: 'smooth'});
+});
             </script>
             <script>
 document.getElementById('dropdown-products')?.addEventListener('click', function(e) {
     e.preventDefault();
     const submenu = document.getElementById('products-submenu');
     submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+});
+            </script>
+            <script>
+            let cart = [];
+function updateCartCount() {
+  const cartCount = document.getElementById('cart-count');
+  if (cartCount) {
+    cartCount.textContent = cart.length;
+    cartCount.style.display = cart.length > 0 ? 'inline-block' : 'none';
+  }
+}
+function addToCart(name, preis, bild) {
+  cart.push({name, preis, bild});
+  updateCartCount();
+}
+document.querySelectorAll('.produkt-card button').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const card = btn.closest('.produkt-card');
+    const name = card.querySelector('h3')?.textContent || '';
+    const preis = card.querySelector('.preis')?.textContent || '';
+    const bild = card.querySelector('img')?.src || '';
+    addToCart(name, preis, bild);
+  });
+});
+            </script>
+            <script>
+document.querySelectorAll('.produkt-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const name = link.querySelector('h3')?.textContent || '';
+    // Hier kannst du z.B. ein Modal öffnen oder auf eine Produktdetailseite weiterleiten
+    alert('Produkt: ' + name + ' wird angezeigt!');
+  });
+});
+            </script>
+            <script>
+const cartDropdown = document.getElementById('cart-dropdown');
+const cartItemsDiv = document.getElementById('cart-items');
+const cartEmptyDiv = document.getElementById('cart-empty');
+document.getElementById('cart-link')?.addEventListener('click', function(e) {
+  e.preventDefault();
+  if (cartDropdown.style.display === 'block') {
+    cartDropdown.style.display = 'none';
+  } else {
+    renderCart();
+    cartDropdown.style.display = 'block';
+  }
+});
+window.addEventListener('click', function(e) {
+  if (cartDropdown.style.display === 'block' && !cartDropdown.contains(e.target) && e.target.id !== 'cart-link' && !e.target.closest('#cart-link')) {
+    cartDropdown.style.display = 'none';
+  }
+});
+function renderCart() {
+  cartItemsDiv.innerHTML = '';
+  let total = 0;
+  if (cart.length === 0) {
+    cartEmptyDiv.style.display = 'block';
+    document.getElementById('cart-total').textContent = '';
+    return;
+  }
+  cartEmptyDiv.style.display = 'none';
+  cart.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `<img src="${item.bild}" alt="${item.name}"><span>${item.name}</span><span>${item.preis}</span> <button class='remove-cart' style='margin-left:auto; background:#d70022; color:#fff; border:none; border-radius:4px; padding:0.2rem 0.7rem; cursor:pointer;'><i class='fa-solid fa-trash'></i></button>`;
+    cartItemsDiv.appendChild(div);
+    total += parseFloat(item.preis.replace(/[^\d,\.]/g, '').replace(',', '.')) || 0;
+    div.querySelector('.remove-cart').addEventListener('click', function() {
+      cart = cart.filter(p => !(p.name === item.name && p.preis === item.preis && p.bild === item.bild));
+      updateCartCount();
+      renderCart();
+    });
+  });
+  document.getElementById('cart-total').textContent = 'Gesamt: ' + total.toFixed(2) + ' €';
+}
+            </script>
+            <script>
+document.getElementById('cart-checkout').addEventListener('click', function() {
+  if (cart.length === 0) {
+    alert('Dein Warenkorb ist leer.');
+    return;
+  }
+  alert('Vielen Dank für deinen Einkauf! (Demo)');
+  cart = [];
+  updateCartCount();
+  renderCart();
 });
             </script>
 </body>
