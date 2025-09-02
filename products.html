@@ -329,6 +329,20 @@
       <input type="text" id="login-username" placeholder="Benutzername" style="padding:0.6rem; border-radius:4px; border:1px solid #ccc;">
       <input type="password" id="login-password" placeholder="Passwort" style="padding:0.6rem; border-radius:4px; border:1px solid #ccc;">
       <button type="submit" style="background:#0078d7; color:#fff; border:none; border-radius:4px; padding:0.7rem; font-size:1rem; cursor:pointer;">Login</button>
+      <button type="button" id="register-btn" style="background:#eee; color:#0078d7; border:none; border-radius:4px; padding:0.7rem; font-size:1rem; cursor:pointer; margin-top:0.5rem;">Registrieren</button>
+    </form>
+  </div>
+</div>
+
+<div id="register-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3); z-index:3001; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:2rem 2.5rem; border-radius:12px; box-shadow:0 2px 16px rgba(0,0,0,0.15); min-width:320px; position:relative;">
+    <button id="close-register-modal" style="position:absolute; top:12px; right:12px; background:none; border:none; font-size:1.3rem; color:#888; cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
+    <h2 style="margin-top:0; color:#0078d7;">Registrieren</h2>
+    <form id="register-form" style="display:flex; flex-direction:column; gap:1rem;">
+      <input type="text" id="register-username" placeholder="Benutzername" style="padding:0.6rem; border-radius:4px; border:1px solid #ccc;">
+      <input type="email" id="register-email" placeholder="E-Mail" style="padding:0.6rem; border-radius:4px; border:1px solid #ccc;">
+      <input type="password" id="register-password" placeholder="Passwort" style="padding:0.6rem; border-radius:4px; border:1px solid #ccc;">
+      <button type="submit" style="background:#0078d7; color:#fff; border:none; border-radius:4px; padding:0.7rem; font-size:1rem; cursor:pointer;">Registrieren</button>
     </form>
   </div>
 </div>
@@ -496,6 +510,26 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
   e.preventDefault();
   alert('Login erfolgreich (Demo)');
   document.getElementById('login-modal').style.display = 'none';
+});
+            </script>
+            <script>
+document.getElementById('register-btn').onclick = function() {
+  document.getElementById('login-modal').style.display = 'none';
+  document.getElementById('register-modal').style.display = 'flex';
+};
+document.getElementById('close-register-modal').onclick = function(e) {
+  e.preventDefault();
+  document.getElementById('register-modal').style.display = 'none';
+};
+document.getElementById('register-modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    this.style.display = 'none';
+  }
+});
+document.getElementById('register-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Registrierung erfolgreich (Demo)!');
+  document.getElementById('register-modal').style.display = 'none';
 });
             </script>
 </body>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>*
 <html lang="de">
 <head>
 	<meta charset="UTF-8">
@@ -40,7 +40,7 @@
 				<span style="font-size:1rem; font-weight:bold;"></span>
 			</button>
 			<div id="dropdown-menu" style="display:none; position:fixed; left:0; top:64px; width:260px; height:calc(100vh - 64px); background:#fff; color:#222; box-shadow:0 2px 16px rgba(0,0,0,0.12); border-radius:0 12px 12px 0; z-index:1001; overflow-y:auto;">
-				<a href="index.html" class="dropdown-anim-link" style="display:block; padding:0.7rem 1.2rem; text-decoration:none; color:#222; border-bottom:1px solid #eee;">Startseite</a>
+				<a href="index.html" class="dropdown-anim-link" style="display:block; padding:0.7rem 1.2rem; text-decoration:none; color:#222; border-bottom:1px solid #eee;">Home</a>
 				<a href="products.html" id="dropdown-products" class="dropdown-anim-link" style="display:flex; align-items:center; justify-content:space-between; padding:0.7rem 1.2rem; text-decoration:none; color:#222; border-bottom:1px solid #eee; cursor:pointer; position:relative; transition: background 0.2s, color 0.2s, transform 0.2s;">
 					<span style="display:flex; align-items:center;">
 						<i class="fa-solid fa-box-open" style="margin-right:8px;"></i> Produkte
@@ -223,6 +223,24 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
   alert('Login erfolgreich (Demo)!');
   document.getElementById('login-modal').style.display = 'none';
 });
+document.getElementById('register-btn').onclick = function() {
+  document.getElementById('login-modal').style.display = 'none';
+  document.getElementById('register-modal').style.display = 'flex';
+};
+document.getElementById('close-register-modal').onclick = function(e) {
+  e.preventDefault();
+  document.getElementById('register-modal').style.display = 'none';
+};
+document.getElementById('register-modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    this.style.display = 'none';
+  }
+});
+document.getElementById('register-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Registrierung erfolgreich (Demo)!');
+  document.getElementById('register-modal').style.display = 'none';
+});
 	</script>
 	</footer>
 
@@ -234,6 +252,19 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
       <input type="text" id="login-username" placeholder="Benutzername" style="padding:0.6rem; border-radius:4px; border:1px solid #ccc;">
       <input type="password" id="login-password" placeholder="Passwort" style="padding:0.6rem; border-radius:4px; border:1px solid #ccc;">
       <button type="submit" style="background:#0078d7; color:#fff; border:none; border-radius:4px; padding:0.7rem; font-size:1rem; cursor:pointer;">Login</button>
+      <button type="button" id="register-btn" style="background:#eee; color:#0078d7; border:none; border-radius:4px; padding:0.7rem; font-size:1rem; cursor:pointer; margin-top:0.5rem;">Registrieren</button>
+    </form>
+  </div>
+</div>
+<div id="register-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3); z-index:3001; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:2rem 2.5rem; border-radius:12px; box-shadow:0 2px 16px rgba(0,0,0,0.15); min-width:320px; position:relative;">
+    <button id="close-register-modal" style="position:absolute; top:12px; right:12px; background:none; border:none; font-size:1.3rem; color:#888; cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
+    <h2 style="margin-top:0; color:#0078d7;">Registrieren</h2>
+    <form id="register-form" style="display:flex; flex-direction:column; gap:1rem;">
+      <input type="text" id="register-username" placeholder="Benutzername" style="padding:0.6rem; border-radius:4px; border:1px solid #ccc;">
+      <input type="email" id="register-email" placeholder="E-Mail" style="padding:0.6rem; border-radius:4px; border:1px solid #ccc;">
+      <input type="password" id="register-password" placeholder="Passwort" style="padding:0.6rem; border-radius:4px; border:1px solid #ccc;">
+      <button type="submit" style="background:#0078d7; color:#fff; border:none; border-radius:4px; padding:0.7rem; font-size:1rem; cursor:pointer;">Registrieren</button>
     </form>
   </div>
 </div>
