@@ -39,124 +39,148 @@
 				<i class="fa-solid fa-bars"></i>
 				<span style="font-size:1rem; font-weight:bold;"></span>
 			</button>
-			<div id="dropdown-menu" style="display:none; position:fixed; left:0; top:64px; width:260px; height:calc(100vh - 64px); background:#fff; color:#222; box-shadow:0 2px 16px rgba(0,0,0,0.12); border-radius:0 12px 12px 0; z-index:1001; overflow-y:auto;">
+			<div id="dropdown-menu" style="position:fixed; left:0; top:64px; width:260px; height:calc(100vh - 64px); background:#fff; color:#222; box-shadow:0 2px 16px rgba(0,0,0,0.12); border-radius:0 12px 12px 0; z-index:1001; overflow-y:auto;">
 				<a href="index.html" class="dropdown-anim-link" style="display:block; padding:0.7rem 1.2rem; text-decoration:none; color:#222; border-bottom:1px solid #eee;">Home</a>
 				<a href="products.html" id="dropdown-products" class="dropdown-anim-link" style="display:flex; align-items:center; justify-content:space-between; padding:0.7rem 1.2rem; text-decoration:none; color:#222; border-bottom:1px solid #eee; cursor:pointer; position:relative; transition: background 0.2s, color 0.2s, transform 0.2s;">
-					<span style="display:flex; align-items:center;">
-						<i class="fa-solid fa-box-open" style="margin-right:8px;"></i> Produkte
-					</span>
-					<i class="fa-solid fa-chevron-right"></i>
-				</a>
-				<a href="#kontakt" class="dropdown-anim-link" style="display:block; padding:0.7rem 1.2rem; text-decoration:none; color:#222;">Kontakt</a>
-			</div>
-		</div>
-		<form class="navbar-search" style="display:flex; justify-content:center; align-items:center; max-width:400px; margin:0 2rem; width:100%;">
-			<input type="text" placeholder="Suche..." style="padding:0.5rem 1rem; border-radius:4px; border:1px solid #ccc; width:100%; min-width:180px;">
-		</form>
-		<div class="navbar-icons">
-				<a href="#" id="cart-link" style="font-size:1.8rem; color:#ffffff; background:none; border:none; position:relative; margin-right:1.2rem;">
-						<i class="fa-solid fa-cart-shopping"></i>
-						<span id="cart-count" style="position:absolute; top:-8px; right:-8px; background:#d70022; color:#fff; border-radius:50%; padding:2px 7px; font-size:0.9rem; display:none;">0</span>
-				</a>
-				<a href="#" id="login-link" style="font-size:1.8rem; color:#ffffff; background:none; border:none; position:relative; margin-right:2rem;">
-						<i class="fa-solid fa-user"></i>
-				</a>
-		</div>
-		<div id="cart-dropdown" style="display:none; position:fixed; right:2rem; top:64px; width:340px; max-height:60vh; background:#fff; color:#222; box-shadow:0 2px 16px rgba(0,0,0,0.12); border-radius:12px; z-index:2000; overflow-y:auto; padding:1rem;">
-			<h3>Warenkorb</h3>
-			<div id="cart-items"></div>
-			<div id="cart-empty" style="color:#888;">Dein Warenkorb ist leer.</div>
-			<div id="cart-total" style="margin-top:1rem; font-weight:bold; color:#0078d7;"></div>
-			<button id="cart-checkout" style="margin-top:1rem; background:#0078d7; color:#fff; border:none; border-radius:4px; padding:0.5rem 1.2rem; font-size:1rem; cursor:pointer; width:100%;">Zur Kasse</button>
-		</div>
-	</nav>
-	<main>
-		<div id="search-container" style="display:none; text-align:center; margin:1rem 0;">
-			<input type="text" id="search-input" placeholder="Produkt suchen..." style="padding:0.5rem; width:250px; border-radius:4px; border:1px solid #ccc;">
-			<button id="search-go" style="background:none; border:none; cursor:pointer; font-size:1.6rem; color:#0078d7; margin-left:8px; vertical-align:middle;">
-				<i class="fa-solid fa-magnifying-glass"></i>
-			</button>
-		</div>
-		<section id="fotos">
-			<h2>Impressionen</h2>
-			<div style="width:100%; max-width:900px; margin:2rem auto; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-				<img id="impressionen-bild" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1920&q=80" alt="Impression" style="width:800px; height:500px; object-fit:cover; border-radius:16px; transition:opacity 0.5s;">
-			</div>
-		</section>
-		<script>
-		const bilder = [
-		  "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1920&q=80", // Handy
-		  "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1920&q=80", // Tablet
-		  "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=1920&q=80", // Smartwatch
-		  "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1920&q=80"  // Kopfhörer
-		];
-		let idx = 0;
-		setInterval(() => {
-		  idx = (idx + 1) % bilder.length;
-		  const img = document.getElementById('impressionen-bild');
-		  if(img) {
-		    img.style.opacity = 0;
-		    setTimeout(() => {
-		      img.src = bilder[idx];
-		      img.style.opacity = 1;
-		    }, 500);
-		  }
-		}, 4000);
-		</script>
+					<script src="main.js"></script>
+					<script>
+					(function(){
+					  const dropdownBtn = document.getElementById('dropdown-btn');
+					  const dropdownMenu = document.getElementById('dropdown-menu');
+					  if (!dropdownBtn || !dropdownMenu) return;
 
-		<section id="brands">
-			<h2>Unsere Marken</h2>
-			<div class="brand-icons">
-				<a href="products.html?samsung" title="Samsung">
-					<img src="img/Samsung_wordmark.svg" alt="Samsung" class="brand-icon">
-				</a>
-				<a href="products.html?huawei" title="Huawei">
-					<img src="img/Huawei-Logo.svg" alt="Huawei" class="brand-icon">
-				</a>
-				<a href="products.html?google" title="Google">
-					<img src="img/Google__G__logo.svg" alt="Google" class="brand-icon">
-				</a>
-				<a href="products.html?xiaomi" title="Xiaomi">
-					<img src="img/Xiaomi_logo.svg" alt="Xiaomi" class="brand-icon">
-				</a>
-				<a href="products.html?honor" title="Honor">
-					<img src="img/LOGO_Honor.svg" alt="Honor" class="brand-icon">
-				</a>
-			</div>
-		</section>
-	</main>
-	<footer>
-		<p>&copy; 2025 Kauf24. Alle Rechte vorbehalten.</p>
-	<script src="main.js"></script>
-	<script>
-	const dropdownBtn = document.getElementById('dropdown-btn');
-	const dropdownMenu = document.getElementById('dropdown-menu');
-	dropdownBtn?.addEventListener('click', function(e) {
-			e.stopPropagation();
-			dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-	});
-	document.addEventListener('click', function(e) {
-			if (dropdownMenu && dropdownMenu.style.display === 'block') {
-					dropdownMenu.style.display = 'none';
-			}
-	});
+					  function openMenu() {
+					    dropdownMenu.classList.add('open');
+					    dropdownBtn.setAttribute('aria-expanded', 'true');
+					  }
+					  function closeMenu() {
+					    dropdownMenu.classList.remove('open');
+					    dropdownBtn.setAttribute('aria-expanded', 'false');
+					  }
 
-	// Warenkorb-Logik wie auf products.html
-	let cart = [];
-	function updateCartCount() {
-		const cartCount = document.getElementById('cart-count');
-		if (cartCount) {
-			cartCount.textContent = cart.length;
-			cartCount.style.display = cart.length > 0 ? 'inline-block' : 'none';
-		}
-	}
-	function addToCart(name, preis, bild) {
-		cart.push({name, preis, bild});
-		updateCartCount();
-	}
-	const cartDropdown = document.getElementById('cart-dropdown');
-	const cartItemsDiv = document.getElementById('cart-items');
-	const cartEmptyDiv = document.getElementById('cart-empty');
+					  dropdownBtn.addEventListener('click', function(e){
+					    e.stopPropagation();
+					    if (dropdownMenu.classList.contains('open')) closeMenu(); else openMenu();
+					  });
+
+					  document.addEventListener('click', function(e){
+					    if (!dropdownMenu.classList.contains('open')) return;
+					    if (!dropdownMenu.contains(e.target) && e.target !== dropdownBtn && !dropdownBtn.contains(e.target)) closeMenu();
+					  });
+
+					  document.addEventListener('keydown', function(e){
+					    if (e.key === 'Escape' || e.key === 'Esc') {
+					      if (dropdownMenu.classList.contains('open')) closeMenu();
+					    }
+					  });
+
+					  const observer = new MutationObserver(() => {
+					    if (dropdownMenu.classList.contains('open')) document.body.style.overflow = 'hidden'; else document.body.style.overflow = '';
+					  });
+					  observer.observe(dropdownMenu, { attributes: true, attributeFilter: ['class'] });
+					})();
+
+					// Warenkorb-Logik wie auf products.html
+					let cart = [];
+					function updateCartCount() {
+						const cartCount = document.getElementById('cart-count');
+						if (cartCount) {
+							cartCount.textContent = cart.length;
+							cartCount.style.display = cart.length > 0 ? 'inline-block' : 'none';
+						}
+					}
+					function addToCart(name, preis, bild) {
+						cart.push({name, preis, bild});
+						updateCartCount();
+					}
+					const cartDropdown = document.getElementById('cart-dropdown');
+					const cartItemsDiv = document.getElementById('cart-items');
+					const cartEmptyDiv = document.getElementById('cart-empty');
+					document.getElementById('cart-link')?.addEventListener('click', function(e) {
+						e.preventDefault();
+						if (cartDropdown.style.display === 'block') {
+							cartDropdown.style.display = 'none';
+						} else {
+							renderCart();
+							cartDropdown.style.display = 'block';
+						}
+					});
+					window.addEventListener('click', function(e) {
+						if (cartDropdown.style.display === 'block' && !cartDropdown.contains(e.target) && e.target.id !== 'cart-link' && !e.target.closest('#cart-link')) {
+							cartDropdown.style.display = 'none';
+						}
+					});
+					function renderCart() {
+						cartItemsDiv.innerHTML = '';
+						let total = 0;
+						if (cart.length === 0) {
+							cartEmptyDiv.style.display = 'block';
+							document.getElementById('cart-total').textContent = '';
+							return;
+						}
+						cartEmptyDiv.style.display = 'none';
+						cart.forEach(item => {
+							const div = document.createElement('div');
+							div.className = 'cart-item';
+							div.innerHTML = `<img src="${item.bild}" alt="${item.name}"><span>${item.name}</span><span>${item.preis}</span> <button class='remove-cart' style='margin-left:auto; background:#d70022; color:#fff; border:none; border-radius:4px; padding:0.2rem 0.7rem; cursor:pointer;'><i class='fa-solid fa-trash'></i></button>`;
+							cartItemsDiv.appendChild(div);
+							total += parseFloat(item.preis.replace(/[^\d,\.]/g, '').replace(',', '.')) || 0;
+							div.querySelector('.remove-cart').addEventListener('click', function() {
+								cart = cart.filter(p => !(p.name === item.name && p.preis === item.preis && p.bild === item.bild));
+								updateCartCount();
+								renderCart();
+							});
+						});
+						document.getElementById('cart-total').textContent = 'Gesamt: ' + total.toFixed(2) + ' \u20ac';
+					}
+					document.getElementById('cart-checkout').addEventListener('click', function() {
+						if (cart.length === 0) {
+							alert('Dein Warenkorb ist leer.');
+							return;
+						}
+						alert('Vielen Dank f\u00fcr deinen Einkauf! (Demo)');
+						cart = [];
+						updateCartCount();
+						renderCart();
+					});
+
+					document.getElementById('login-link').addEventListener('click', function(e) {
+					  e.preventDefault();
+					  document.getElementById('login-modal').style.display = 'flex';
+					});
+					document.getElementById('close-login-modal').onclick = function(e) {
+					  e.preventDefault();
+					  document.getElementById('login-modal').style.display = 'none';
+					};
+					document.getElementById('login-modal').addEventListener('click', function(e) {
+					  if (e.target === this) {
+					    this.style.display = 'none';
+					  }
+					});
+					document.getElementById('login-form').addEventListener('submit', function(e) {
+					  e.preventDefault();
+					  alert('Login erfolgreich (Demo)!');
+					  document.getElementById('login-modal').style.display = 'none';
+					});
+					document.getElementById('register-btn').onclick = function() {
+					  document.getElementById('login-modal').style.display = 'none';
+					  document.getElementById('register-modal').style.display = 'flex';
+					};
+					document.getElementById('close-register-modal').onclick = function(e) {
+					  e.preventDefault();
+					  document.getElementById('register-modal').style.display = 'none';
+					};
+					document.getElementById('register-modal').addEventListener('click', function(e) {
+					  if (e.target === this) {
+					    this.style.display = 'none';
+					  }
+					});
+					document.getElementById('register-form').addEventListener('submit', function(e) {
+					  e.preventDefault();
+					  alert('Registrierung erfolgreich (Demo)!');
+					  document.getElementById('register-modal').style.display = 'none';
+					});
+					</script>
 	document.getElementById('cart-link')?.addEventListener('click', function(e) {
 		e.preventDefault();
 		if (cartDropdown.style.display === 'block') {
